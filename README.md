@@ -1,6 +1,9 @@
 # Door
 
-**TODO: Add description**
+Simple Oauth for elixir app
+
+Door is a modern Oauth Client and Server that prioritizes security, ease of use, and extensibility
+in that order.
 
 ## Installation
 
@@ -15,7 +18,7 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/door>.
-
+## Usage
+Door is agnostic to your HTTP client, and data storage layer; It simply provides guiding
+convenience functions you hook into your appilcation; allowing you to build your custom oauth flow
+in a secure and extensible way.
