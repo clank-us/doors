@@ -1,8 +1,8 @@
-# Door
+# Doors
 
 Simple Oauth for elixir app
 
-Door is a modern Oauth Client and Server that prioritizes security, ease of use, and extensibility
+Doors is a modern Oauth Client and Server that prioritizes security, ease of use, and extensibility
 in that order.
 
 ## Installation
@@ -13,12 +13,12 @@ by adding `door` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:door, "~> 0.1.0"}
+    {:doors, "~> 0.1.0"}
   ]
 end
 ```
 
 ## Usage
-Door is agnostic to your HTTP client, and data storage layer; It simply provides guiding
+Doors is agnostic to your HTTP client, and data storage layer; It simply provides guiding
 convenience functions you hook into your appilcation; allowing you to build your custom oauth flow
 in a secure and extensible way.

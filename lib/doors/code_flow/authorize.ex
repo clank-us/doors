@@ -1,5 +1,5 @@
-defmodule Door.CodeFlow.Authorize do
-  alias Door.Utils
+defmodule Doors.CodeFlow.Authorize do
+  alias Doors.Utils
 
   use Ecto.Schema
 

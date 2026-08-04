@@ -1,9 +1,9 @@
-defmodule Door.CodeFlow.AuthorizeTest do
+defmodule Doors.CodeFlow.AuthorizeTest do
   use ExUnit.Case, async: true
 
   describe "prepare" do
     test "creates querystring if params are valid" do
-      assert {:error, %Ecto.Changeset{} = changeset} = Door.CodeFlow.Authorize.prepare(%{})
+      assert {:error, %Ecto.Changeset{} = changeset} = Doors.CodeFlow.Authorize.prepare(%{})
       assert {:client_id, {"can't be blank", [validation: :required]}} in changeset.errors
 
       params = %{
@@ -12,7 +12,7 @@ defmodule Door.CodeFlow.AuthorizeTest do
         scope: "name email profile openid projects:write"
       }
 
-      assert {_data, query_string} = Door.CodeFlow.Authorize.prepare(params)
+      assert {_data, query_string} = Doors.CodeFlow.Authorize.prepare(params)
       assert query_string =~ "name%20email"
       assert query_string =~ "client_id=client1"
       assert query_string =~ "response_type=code"
@@ -29,7 +29,7 @@ defmodule Door.CodeFlow.AuthorizeTest do
 
       assert {:ok, data} =
                params
-               |> Door.CodeFlow.Authorize.prepare_changeset()
+               |> Doors.CodeFlow.Authorize.prepare_changeset()
                |> Ecto.Changeset.apply_action(:prepare)
 
       assert data.state |> String.length() == 22

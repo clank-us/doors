@@ -1,6 +1,6 @@
-defmodule Door do
+defmodule Doors do
   @moduledoc """
-  Documentation for `Door`.
+  Documentation for `Doors`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule Door do
 
   ## Examples
 
-      iex> Door.hello()
+      iex> Doors.hello()
       :world
 
   """

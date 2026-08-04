@@ -1,4 +1,4 @@
-defmodule Door.Utils do
+defmodule Doors.Utils do
   @alg_map %{
     "S256" => :sha256,
     :S256 => :sha256,
