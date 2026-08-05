@@ -12,14 +12,16 @@ defmodule Doors.CodeFlow.AuthorizeTest do
         scope: "name email profile openid projects:write"
       }
 
-      assert {_data, query_string} = Doors.CodeFlow.Authorize.prepare(params)
+      assert {_data, query_string} = Doors.CodeFlow.Authorize.prepare(params) |> dbg()
       assert query_string =~ "name%20email"
       assert query_string =~ "client_id=client1"
       assert query_string =~ "response_type=code"
+      assert query_string =~ "code_challenge="
+      refute query_string =~ "code_verifier="
     end
   end
 
-    describe "prepare_changeset" do
+  describe "prepare_changeset" do
     test "generates flow-specific fields" do
       params = %{
         client_id: "client1",

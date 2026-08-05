@@ -26,11 +26,11 @@ defmodule Doors.CodeFlow.Authorize do
   client
   """
   def prepare(%{} = params) do
-    data =  params |> prepare_changeset() |> apply_action(:pepare)
+    data = params |> prepare_changeset() |> apply_action(:pepare)
 
     case data do
       {:ok, valid} -> {data, to_query_string(valid)}
-      other ->  other
+      other -> other
     end
   end
 
@@ -47,7 +47,10 @@ defmodule Doors.CodeFlow.Authorize do
   end
 
   defp to_query_string(%__MODULE__{} = schema) do
-    schema |> Map.from_struct() |> URI.encode_query(:rfc3986)
+    schema
+    |> Map.from_struct()
+    |> Map.delete(:code_verifier)
+    |> URI.encode_query(:rfc3986)
   end
 
   defp put_state(%{valid?: false} = changeset), do: changeset
@@ -67,5 +70,4 @@ defmodule Doors.CodeFlow.Authorize do
     |> put_change(:code_verifier, code_verifier)
     |> put_change(:code_challenge, code_challenge)
   end
-
 end
